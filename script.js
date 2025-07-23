@@ -36,6 +36,7 @@ function scrollToPage(page) {
   }, 1000);
 }
 
+// Handle mouse wheel scroll (desktop)
 window.addEventListener("wheel", (e) => {
   if (isScrolling) return;
   if (e.deltaY > 50 && currentPage === 0) {
@@ -46,3 +47,32 @@ window.addEventListener("wheel", (e) => {
     scrollToPage(currentPage);
   }
 });
+
+// Handle swipe gestures (mobile)
+let touchStartY = 0;
+let touchEndY = 0;
+
+window.addEventListener("touchstart", (e) => {
+  touchStartY = e.changedTouches[0].clientY;
+});
+
+window.addEventListener("touchend", (e) => {
+  touchEndY = e.changedTouches[0].clientY;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  if (isScrolling) return;
+  const threshold = 50; // minimum distance for swipe to count
+  const deltaY = touchStartY - touchEndY;
+
+  if (deltaY > threshold && currentPage === 0) {
+    // Swipe up
+    currentPage = 1;
+    scrollToPage(currentPage);
+  } else if (deltaY < -threshold && currentPage === 1) {
+    // Swipe down
+    currentPage = 0;
+    scrollToPage(currentPage);
+  }
+}
