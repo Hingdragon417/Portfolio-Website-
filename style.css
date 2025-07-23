@@ -1,9 +1,17 @@
+:root {
+  --fs-sm: clamp(0.9rem, 1.5vw, 1.1rem);
+  --fs-base: clamp(1rem, 2vw, 1.5rem);
+  --fs-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --fs-xl: clamp(2rem, 4vw, 3.5rem);
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   overflow: hidden;
   font-family: sans-serif;
+  font-size: var(--fs-base);
 }
 
 body {
@@ -38,7 +46,7 @@ body {
   background-color: #1e1e1e;
   border-radius: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  padding: 40px;
+  padding: 2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,10 +70,10 @@ body {
 }
 
 .intro-text {
-  font-size: 2.5rem;
+  font-size: var(--fs-lg);
   font-weight: bold;
   color: #e0e0e0;
-  margin-bottom: 40px;
+  margin-bottom: 2.5vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,11 +89,11 @@ body {
 }
 
 .subtitle-text {
-  font-size: 3.5rem;
+  font-size: var(--fs-xl);
   font-weight: 900;
   color: #e0e0e0;
   white-space: nowrap;
-  margin-bottom: 40px;
+  margin-bottom: 2.5vw;
 }
 
 #typed-text {
@@ -98,8 +106,8 @@ body {
 }
 
 .contact-button {
-  padding: 15px 30px;
-  font-size: 1.5rem;
+  padding: 1em 2em;
+  font-size: var(--fs-base);
   font-weight: bold;
   color: #fff;
   background-color: orange;
@@ -120,26 +128,26 @@ body {
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: var(--fs-xl);
   font-weight: 900;
   color: orange;
-  margin-bottom: 40px;
+  margin-bottom: 2.5vw;
   text-align: center;
 }
 
 .project-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 2vw;
   justify-content: center;
   width: 100%;
 }
 
 .project-card {
   background-color: #2a2a2a;
-  padding: 35px;
+  padding: 2.5vw;
   border-radius: 20px;
-  width: 380px;
+  width: clamp(280px, 30vw, 380px);
   box-shadow: 0 0 25px rgba(255, 165, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -151,23 +159,23 @@ body {
 
 .project-card h3 {
   color: orange;
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: var(--fs-lg);
+  margin-bottom: 1rem;
 }
 
 .project-card p {
   color: #ccc;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: var(--fs-sm);
+  margin-bottom: 1.5rem;
 }
 
 .project-card a {
   color: white;
   background-color: orange;
-  padding: 12px 20px;
+  padding: 0.75em 1.25em;
   border-radius: 10px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: var(--fs-sm);
   font-weight: bold;
   display: inline-block;
   transition: background-color 0.2s ease;
@@ -181,7 +189,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 1.5vw;
 }
 
 .project-text {
